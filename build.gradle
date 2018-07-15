@@ -1,0 +1,29 @@
+plugins {
+    id 'com.google.cloud.tools.jib' version '0.9.6'
+}
+apply plugin: 'java'
+
+group 'test-jib'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jib {
+    from {
+        image = 'userfeeds/base-java-image'
+    }
+    to {
+        image = 'userfeeds/test-jib'
+    }
+    container {
+        mainClass = 'Main'
+    }
+}

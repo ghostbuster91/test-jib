@@ -18,7 +18,7 @@ dependencies {
 
 jib {
     from {
-        image = 'ghostbuster91/test-jib'
+        image = 'userfeeds/base-java-image'
         auth {
             username = System.env.get("docker_registry_username")
             password = System.env.get("docker_registry_password")

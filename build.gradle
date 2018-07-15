@@ -18,10 +18,18 @@ dependencies {
 
 jib {
     from {
-        image = 'userfeeds/base-java-image'
+        image = 'ghostbuster91/test-jib'
+        auth {
+            username = System.env.get("docker_registry_username")
+            password = System.env.get("docker_registry_password")
+        }
     }
     to {
-        image = 'userfeeds/test-jib'
+        image = 'ghostbuster91/test-jib'
+        auth {
+            username = System.env.get("docker_registry_username")
+            password = System.env.get("docker_registry_password")
+        }
     }
     container {
         mainClass = 'Main'
